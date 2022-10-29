@@ -10,6 +10,7 @@ public class App {
         //1.加载类路径下的配置文件
         //ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         //2.从文件系统下加载配置文件
+        //ApplicationContext ctx = new FileSystemXmlApplicationContext("applicationContext.xml");
         ApplicationContext ctx = new FileSystemXmlApplicationContext("D:\\IdeaProjects\\lfw\\10-container\\src\\main\\resources\\applicationContext.xml");
         BookDao bookDao = (BookDao) ctx.getBean("bookDao");
         BookDao bookDao1 = ctx.getBean("bookDao", BookDao.class);

@@ -8,31 +8,38 @@
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 管理DruidDataSource 对象-->
-    <!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
-    <!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
-    <!--        <property name="url" value="jdbc:mysql://localhost:3306/spring_db"/>-->
-    <!--        <property name="username" value="root"/>-->
-    <!--        <property name="password" value="root"/>-->
-    <!--    </bean>-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/spring_db"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="root"/>-->
+<!--    </bean>-->
 
     <!-- 管理C3P0 对象-->
-    <!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
-    <!--        <property name="driverClass" value="com.mysql.jdbc.Driver"/>-->
-    <!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_db"/>-->
-    <!--        <property name="user" value="root"/>-->
-    <!--        <property name="password" value="root"/>-->
-    <!--        <property name="maxPoolSize" value="1000"/>-->
-    <!--    </bean>-->
+<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--        <property name="driverClass" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_db"/>-->
+<!--        <property name="user" value="root"/>-->
+<!--        <property name="password" value="root"/>-->
+<!--        <property name="maxPoolSize" value="1000"/>-->
+<!--    </bean>-->
 
     <!--    1.开启context命名空间-->
     <!--    2.使用context空间加载properties文件-->
     <!--    <context:property-placeholder location="jdbc.properties" system-properties-mode="NEVER"/>-->
-    <!--    <context:property-placeholder location="jdbc.properties,jdbc2.properties" system-properties-mode="NEVER"/>-->
-    <!--    classpath:*.properties  ：   设置加载当前工程类路径中的所有properties文件-->
+
+    <!-- 方式1 -->
+    <!--    <context:property-placeholder location="jdbc.properties, jdbc2.properties" system-properties-mode="NEVER"/>-->
+    <!--    classpath:*.properties：   设置加载当前工程类路径中的所有properties文件-->
     <!--    system-properties-mode属性：是否加载系统属性-->
+
+    <!-- 方式2 -->
     <!--    <context:property-placeholder location="*.properties" system-properties-mode="NEVER"/>-->
 
+    <!-- 方式3 -->
     <!--classpath*:*.properties  ：  设置加载当前工程类路径和当前工程所依赖的所有jar包中的所有properties文件-->
+
+    <!-- 方式4 -->
     <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
 
     <!--    3.使用属性占位符${}读取properties文件中的属性-->
@@ -44,8 +51,8 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-        <bean id="bookDao" class="com.lfw.dao.impl.BookDaoImpl">
-            <property name="name" value="${username}"/>
-        </bean>
+    <bean id="bookDao" class="com.lfw.dao.impl.BookDaoImpl">
+        <property name="name" value="${username}"/>
+    </bean>
 
 </beans>
