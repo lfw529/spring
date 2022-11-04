@@ -10,7 +10,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     public int select() {
-        System.out.println("book dao update is running ...");
+        System.out.println("book dao select is running ...");
 //        int i = 1 / 0;
         return 100;
     }
